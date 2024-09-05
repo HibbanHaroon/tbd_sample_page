@@ -15,7 +15,7 @@ const ContentArea = () => {
   };
 
   const handleQuizClick = () => {
-    setCurrentView("quiz");
+    // setCurrentView("quiz");
   };
 
   return (
