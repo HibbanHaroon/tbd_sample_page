@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 import Header from "../../components/Header";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ContentArea from "./content/ContentArea";
@@ -9,9 +9,8 @@ import bookData from "../../constants/data/bookData.json";
 const { Footer, Content } = Layout;
 
 function Main() {
-  const token = theme.useToken();
   return (
-    <Layout>
+    <Layout style={{ width: "100%", backgroundColor: "#fff" }}>
       <Header />
       <Content
         style={{
@@ -21,9 +20,8 @@ function Main() {
         <Breadcrumbs />
         <Layout
           style={{
-            padding: "24px 0",
-            background: token.secondaryColor,
-            borderRadius: "16px",
+            padding: "6px 0",
+            background: "#fff",
           }}
         >
           <Sidebar bookData={bookData} />
@@ -32,7 +30,9 @@ function Main() {
       </Content>
       <Footer
         style={{
+          backgroundColor: "#F2F6FA",
           textAlign: "center",
+          color: "#0D52FB",
         }}
       >
         TBD Sample Page ©{new Date().getFullYear()}

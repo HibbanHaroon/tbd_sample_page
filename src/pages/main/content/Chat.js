@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, Row, Col, Input, theme } from "antd";
+import React, { useState } from "react";
+import { Typography, Row, Col, Input } from "antd";
 import {
   FilePdfOutlined,
   SearchOutlined,
@@ -9,8 +9,6 @@ import {
 } from "@ant-design/icons";
 
 function Chat() {
-  const { token } = theme.useToken();
-  // Define the onSearch function
   const onSearch = (value) => {
     console.log("Search input value:", value);
   };
@@ -25,11 +23,11 @@ function Chat() {
         width: "100%",
         padding: "20px",
         borderRadius: "16px",
-        backgroundColor: token.secondaryColor,
+        backgroundColor: "#F2F6FA",
       }}
     >
       <Typography.Title level={1}>How can I help you today?</Typography.Title>
-      <Typography.Paragraph>
+      <Typography.Paragraph style={{ width: "70%", textAlign: "center" }}>
         I’m here to assist you with your PDF documents. You can ask me to find
         specific information, summarize content, or help with any queries
         related to your PDFs.
@@ -38,9 +36,9 @@ function Chat() {
       <Row
         gutter={[16, 16]}
         style={{ marginTop: "20px" }}
-        justify="space-between"
+        justify="space-evenly"
       >
-        <Col span={6}>
+        <Col span={7}>
           <FeatureCard
             icon={FilePdfOutlined}
             title="Upload a PDF"
@@ -48,7 +46,7 @@ function Chat() {
           />
         </Col>
 
-        <Col span={6}>
+        <Col span={7}>
           <FeatureCard
             icon={SearchOutlined}
             title="Find Information"
@@ -56,7 +54,7 @@ function Chat() {
           />
         </Col>
 
-        <Col span={6}>
+        <Col span={7}>
           <FeatureCard
             icon={QuestionCircleOutlined}
             title="Ask a Question"
@@ -65,15 +63,15 @@ function Chat() {
         </Col>
       </Row>
       <Input.Search
+        className="chat-input"
         placeholder="What do you have in mind?"
-        size="large"
         style={{ marginTop: "20px" }}
         onSearch={onSearch}
         suffix={
           <AudioOutlined
             style={{
               fontSize: 16,
-              color: token.primaryColor,
+              color: "#0D52FB",
             }}
           />
         }
@@ -81,7 +79,7 @@ function Chat() {
           <SendOutlined
             style={{
               fontSize: 16,
-              color: token.whiteColor,
+              color: "#ffffff",
             }}
           />
         }
@@ -93,21 +91,27 @@ function Chat() {
 export default Chat;
 
 const FeatureCard = ({ icon, title, description }) => {
-  const { token } = theme.useToken();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: token.whiteColor,
+        backgroundColor: "#ffffff",
         padding: "20px",
         borderRadius: "16px",
+        border: "2px solid #EAF2F7",
+        cursor: "pointer",
+        transform: isHovered ? "scale(1.05)" : "scale(1)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
     >
       {React.createElement(icon, {
-        style: { fontSize: "36px", color: token.primaryColor },
+        style: { fontSize: "36px", color: "#0D52FB" },
       })}
       <Typography.Title level={3} style={{ margin: "10px 0" }}>
         {title}

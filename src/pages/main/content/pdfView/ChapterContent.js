@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Row, Col } from "antd";
+import { Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import PDFViewer from "./PDFViewer";
 import { pdfjs } from "react-pdf";
@@ -23,48 +23,37 @@ const ChapterContent = () => {
   };
 
   return (
-    <Row
-      justify="center"
-      align="middle"
-      style={{ minHeight: "100vh", padding: "0 10px" }}
+    <div
+      style={{
+        width: "70%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
-      <Col xs={24} sm={22} md={20} lg={18} xl={16}>
-        <Card
-          style={{
-            width: "70%",
-            margin: "0 auto",
-            borderColor: "grey",
-            borderWidth: "1px",
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-            textAlign: "center",
-            padding: "20px",
-            marginBottom: "20px",
-          }}
+      <PDFViewer
+        pageNumber={pageNumber}
+        onDocumentLoadSuccess={onDocumentLoadSuccess}
+      />
+      <div style={{ margin: "10px" }}>
+        <Button
+          icon={<LeftOutlined />}
+          onClick={handlePrev}
+          disabled={pageNumber <= 1}
+          style={{ marginRight: 10 }}
         >
-          <PDFViewer
-            pageNumber={pageNumber}
-            onDocumentLoadSuccess={onDocumentLoadSuccess}
-          />
-          <div style={{ marginTop: 20 }}>
-            <Button
-              icon={<LeftOutlined />}
-              onClick={handlePrev}
-              disabled={pageNumber <= 1}
-              style={{ marginRight: 10 }}
-            >
-              Previous
-            </Button>
-            <Button
-              icon={<RightOutlined />}
-              onClick={handleNext}
-              disabled={pageNumber >= numPages}
-            >
-              Next
-            </Button>
-          </div>
-        </Card>
-      </Col>
-    </Row>
+          Previous
+        </Button>
+        <Button
+          icon={<RightOutlined />}
+          onClick={handleNext}
+          disabled={pageNumber >= numPages}
+        >
+          Next
+        </Button>
+      </div>
+    </div>
   );
 };
 

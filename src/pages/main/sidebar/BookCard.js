@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Typography, Row, Col } from "antd";
 import bookData from "../../../constants/data/bookData.json";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const BookCard = () => {
   const { book } = bookData;
@@ -11,8 +11,11 @@ const BookCard = () => {
     <Card
       style={{
         width: "100%",
-        borderRadius: "1px",
-        padding: "0",
+        borderTopLeftRadius: "16px",
+        borderTopRightRadius: "16px",
+        borderBottomRightRadius: "0px",
+        borderBottomLeftRadius: "0px",
+        border: "2px solid #EAF2F7",
       }}
       bodyStyle={{ padding: "0" }}
     >
@@ -23,7 +26,7 @@ const BookCard = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "8px",
+            padding: "16px",
           }}
         >
           <img
@@ -37,15 +40,17 @@ const BookCard = () => {
             }}
           />
         </Col>
-        <Col span={16} style={{ padding: "8px" }}>
-          <Title level={4} style={{ marginBottom: "4px" }}>
+        <Col
+          span={16}
+          style={{
+            padding: "8px",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Title level={4} style={{ margin: "0" }}>
             {book.title}
           </Title>
-          <Text strong>Author:</Text> {book.author}
-          <br />
-          <Text strong>Publication Year:</Text> {book.publicationYear}
-          <br />
-          <Text strong>ISBN:</Text> {book.isbn}
         </Col>
       </Row>
     </Card>

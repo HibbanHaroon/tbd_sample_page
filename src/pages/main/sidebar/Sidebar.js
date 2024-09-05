@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { BookOutlined } from "@ant-design/icons";
 import BookCard from "./BookCard";
 
 const { Sider } = Layout;
@@ -15,7 +15,7 @@ const Sidebar = ({ bookData }) => {
       <SubMenu
         key={`chapter-${chapter.chapterNumber}`}
         title={`${chapter.chapterNumber}: ${chapter.title}`}
-        icon={<UserOutlined />}
+        icon={<BookOutlined />}
       >
         {chapter.subChapters.map((subChapter) => (
           <Menu.Item key={`subchapter-${subChapter.subChapterNumber}`}>
@@ -37,8 +37,12 @@ const Sidebar = ({ bookData }) => {
       <Menu
         mode="inline"
         style={{
-          height: "calc(100% - 200px)",
-          marginTop: "16px",
+          borderTopLeftRadius: "0px",
+          borderTopRightRadius: "0px",
+          borderBottomRightRadius: "16px",
+          borderBottomLeftRadius: "16px",
+          border: "2px solid #EAF2F7",
+          borderTop: "none",
         }}
       >
         {generateMenuItems()}

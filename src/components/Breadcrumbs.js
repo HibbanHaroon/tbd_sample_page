@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
       }}
     >
       <Breadcrumb.Item>Home</Breadcrumb.Item>
-      <Breadcrumb.Item>Select PDFs</Breadcrumb.Item>
+      <Breadcrumb.Item>Select Chapters</Breadcrumb.Item>
     </Breadcrumb>
   );
 };

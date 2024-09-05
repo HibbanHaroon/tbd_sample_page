@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Layout, Card, Space, Button } from "antd";
+import { Layout, Space, Button } from "antd";
 import ChapterContent from "./pdfView/ChapterContent";
+import { WechatWorkOutlined, FileDoneOutlined } from "@ant-design/icons";
 import Chat from "./Chat";
 import Quiz from "./Quiz";
 
@@ -20,38 +21,47 @@ const ContentArea = () => {
   return (
     <Content
       style={{
-        padding: "0 24px",
-        minHeight: "calc(100vh - 64px)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        background: "#fff",
+        margin: "0 24px",
       }}
     >
-      <Card
+      <div
         style={{
           width: "100%",
-          maxWidth: "100%",
-          margin: "0 auto",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          borderRadius: "4px",
-          padding: "20px",
+          border: "2px solid #EAF2F7",
+          borderRadius: "16px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <ChapterContent />
-      </Card>
-      <div>
+      </div>
+      <div style={{ marginTop: "32px" }}>
         <Space>
-          <Button type="primary" onClick={handleChatClick}>
-            Chat with me
+          <Button
+            type="primary"
+            size="large"
+            icon={<WechatWorkOutlined />}
+            onClick={handleChatClick}
+          >
+            Chat with PDF
           </Button>
-          <Button type="primary" onClick={handleQuizClick}>
+          <Button
+            type="primary"
+            size="large"
+            icon={<FileDoneOutlined />}
+            onClick={handleQuizClick}
+          >
             Take a Quiz
           </Button>
         </Space>
       </div>
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ margin: "32px 0" }}>
         {currentView === "chat" && <Chat />}
         {currentView === "quiz" && <Quiz />}
       </div>
