@@ -3,7 +3,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -11,8 +12,20 @@ code {
     monospace;
 }
 
-.ant-input-group-wrapper,
-.ant-input-affix-wrapper,
-.ant-input-group-addon .ant-btn {
-  height: 50px;
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e6f1ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d52fb;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3675ff;
+  cursor: pointer;
 }

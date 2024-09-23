@@ -1,17 +1,16 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Main from "./pages/main/Main";
+import { ConfigProvider } from "antd";
+import theme from "./constants/theme";
+import Book from "./pages/book/book";
+import MainLayout from "./layout/main-layout";
 
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-        </Routes>
-      </Router>
-    </div>
+    <ConfigProvider theme={theme}>
+      <MainLayout>
+        <Book />
+      </MainLayout>
+    </ConfigProvider>
   );
-};
+}
 
 export default App;
