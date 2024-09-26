@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.ant-input-group-wrapper,
+.ant-input-affix-wrapper,
+.ant-input-group-addon .ant-btn {
+  height: 50px;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }

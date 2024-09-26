@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Flex,  Input, Button, Space } from "antd";
+import { Flex, Input, Button, Space, theme } from "antd";
 import { SendOutlined, AudioOutlined } from "@ant-design/icons";
 
 const { TextArea } = Input;
+const { useToken } = theme;
 
-function ChatInput({ onSend }) {
+function ChatInput({ onSend, closeRecommendations }) {
+  const { token } = useToken();
   const [inputValue, setInputValue] = useState("");
 
   const handleSend = () => {
     if (inputValue.trim()) {
+      closeRecommendations();
       onSend(inputValue);
       setInputValue("");
     }
@@ -27,7 +30,7 @@ function ChatInput({ onSend }) {
       style={{
         width: "100%",
         borderRadius: "8px",
-        border: "2px solid #eaf2f7",
+        border: token.border,
         padding: "8px",
         alignItems: "end",
       }}

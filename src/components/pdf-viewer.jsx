@@ -2,7 +2,7 @@ import React from "react";
 import { Document, Page } from "react-pdf";
 import samplePDF from "../constants/sample-pdf.pdf";
 
-function PDFViewer({ pageNumber, onDocumentLoadSuccess }) {
+function PDFViewer({ pageNumber, onDocumentLoadSuccess, width }) {
   return (
     <div
       style={{
@@ -16,7 +16,7 @@ function PDFViewer({ pageNumber, onDocumentLoadSuccess }) {
           pageNumber={pageNumber}
           renderTextLayer={false}
           renderAnnotationLayer={false}
-          width={200}
+          width={width}
         />
       </Document>
     </div>

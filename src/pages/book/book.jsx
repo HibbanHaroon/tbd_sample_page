@@ -2,26 +2,26 @@ import React from "react";
 import { Layout } from "antd";
 
 import bookData from "../../constants/book-data";
-import ChaptersMenu from "./sections/chapters-menu";
 import ContentBox from "./sections/content-box";
 import BookInformation from "./sections/book-information";
+import PDFCard from "./sections/pdf-card";
 
-function Book() {
+function Book({ contentRef, collapsed }) {
   return (
     <Layout
       style={{
         padding: "12px",
-        background: "#fff",
         height: "100%",
       }}
     >
-      <ChaptersMenu bookData={bookData.book} />
+      {/* Displaying Book card and Chapters Menu */}
+      <BookInformation bookData={bookData.book} />
 
       {/* Where user can take chat or quiz */}
       <ContentBox />
 
-      {/* Where book card, recommendations and pdf will be displayed */}
-      <BookInformation bookData={bookData.book} />
+      {/* PDF Viewer */}
+      <PDFCard contentRef={contentRef} collapsed={collapsed} />
     </Layout>
   );
 }

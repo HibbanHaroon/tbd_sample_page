@@ -1,11 +1,13 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, theme } from "antd";
 import { BookOutlined } from "@ant-design/icons";
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
+const { useToken } = theme;
 
 function ChaptersMenu({ bookData }) {
+  const { token } = useToken();
   const generateMenuItems = () => {
     return bookData.chapters.map((chapter) => (
       <SubMenu
@@ -23,17 +25,13 @@ function ChaptersMenu({ bookData }) {
   };
 
   return (
-    <Sider
-      style={{
-        background: "#fff",
-      }}
-      width={"25%"}
-    >
+    <Sider style={{ backgroundColor: "transparent" }} width={"100%"}>
       <Menu
         mode="inline"
         style={{
-          borderRadius: "16px",
-          border: "2px solid #EAF2F7",
+          borderBottomLeftRadius: "16px",
+          borderBottomRightRadius: "16px",
+          border: token.border,
         }}
       >
         {generateMenuItems()}

@@ -1,33 +1,26 @@
 // ContentBox.js
 import React from "react";
-import {
-  Layout,
-  Avatar,
-  Typography,
-  Space,
-  Button,
-  Tooltip,
-  Divider,
-  Flex,
-} from "antd";
+import { Layout, Space, Button, Tooltip, Divider, Flex, theme } from "antd";
 import { SwapOutlined, MoreOutlined } from "@ant-design/icons";
 import Chat from "./chat";
+import AvatarWithText from "../../../components/avatar-with-text";
 
 const { Content } = Layout;
-const { Text } = Typography;
+const { useToken } = theme;
 
 function ContentBox() {
+  const { token } = useToken();
   return (
     <Layout
       style={{
         marginLeft: "12px",
-        background: "#fff",
         width: "25%",
         borderRadius: "16px",
-        border: "2px solid #EAF2F7",
+        border: token.border,
         height: "85vh",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: token.colorWhite,
       }}
     >
       <Content style={{ flex: "none" }}>
@@ -39,13 +32,11 @@ function ContentBox() {
             padding: "12px",
           }}
         >
-          <Space>
-            <Avatar size={42} src="https://placekitten.com/200/200" />
-            <Flex vertical>
-              <Text type="primary">User Name</Text>
-              <Text type="secondary">Subtitle</Text>
-            </Flex>
-          </Space>
+          <AvatarWithText
+            text="Mathematics"
+            subtitle="24 Members"
+            isBadge={false}
+          />
           <Space>
             <Tooltip title="Switch to Quiz">
               <Button shape="circle" type="ghost" icon={<SwapOutlined />} />

@@ -1,14 +1,13 @@
 import React from "react";
 import { Layout, Flex } from "antd";
 import BookCard from "./book-card";
-import RecommendationsCard from "./recommendations-card";
-import PDFCard from "./pdf-card";
+import ChaptersMenu from "./chapters-menu";
 
 const { Content } = Layout;
 
 function BookInformation({ bookData }) {
   return (
-    <Content style={{ paddingLeft: "12px", background: "#fff" }}>
+    <Content style={{ paddingLeft: "12px" }}>
       <Flex
         vertical
         style={{
@@ -16,8 +15,7 @@ function BookInformation({ bookData }) {
         }}
       >
         <BookCard bookData={bookData} />
-        <RecommendationsCard />
-        <PDFCard />
+        <ChaptersMenu bookData={bookData} />
       </Flex>
     </Content>
   );
